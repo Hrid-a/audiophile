@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer base {
+
+
+    :root {
+
+        /* --clr-primary: hsla(21, 65%, 57%, 1) */
+        --clr-primary: 21, 65%, 57%;
+        --clr-bg-black: 0, 0%, 6%;
+        --clr-secondary: 0, 0%, 0%;
+        --clr-white-100: 0, 0%, 98%;
+        --clr-white-200: 0, 0%, 95%;
+        --clr-white-400: 0, 0%, 30%;
+        --clr-btn-hover: 22, 93%, 75%;
+
+        /* font-family: 'Manrope', sans-serif; */
+
+    }
+
+}
+
+@layer components {
+    .custom-radio {
+        @apply w-6 h-6 text-[#d97c4a] bg-white border-white-200 focus:ring-primary focus:ring-offset-2;
+    }
+
+
+}
