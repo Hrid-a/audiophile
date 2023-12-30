@@ -12,7 +12,7 @@ import Cart from "./Cart";
 const Header = () => {
     const [isMenuOpened, setIsMenuOpened] = useState(false);
     const location = useLocation();
-    const cartLength = useSelector(state => state.cart.cart.length)
+    const cartLength = useSelector(state => state.cart.length)
     const isCartShown = useSelector(state => state.cart.isCartShown);
 
     const dispatch = useDispatch();
