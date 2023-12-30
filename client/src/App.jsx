@@ -6,8 +6,8 @@ import ProductPage from "./pages/ProductPage";
 import CheckOut from "./pages/CheckOut";
 import Error from "./pages/Error";
 import { Provider } from "react-redux";
-import store from "./redux/store";
-
+import store, { persistor } from "./redux/store";
+import { PersistGate } from 'redux-persist/integration/react'
 
 function App() {
   const router = createBrowserRouter([
@@ -40,7 +40,9 @@ function App() {
 
     <Provider store={store}>
       <RouterProvider router={router}>
-        <Layout />
+        <PersistGate loading={null} persistor={persistor}>
+          <Layout />
+        </PersistGate>
       </RouterProvider>
     </Provider>
   )
