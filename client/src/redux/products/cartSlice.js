@@ -23,7 +23,7 @@ const cartSlice = createSlice({
         },
         decrementQty: (state, action) => {
             state.cart = [...state.cart.map(item => {
-                if (item.Qty !== 1) return item.id === action.payload ? { ...item, Qty: item.Qty - 1 } : item;
+                if (item.Qty > 1) return item.id === action.payload ? { ...item, Qty: item.Qty - 1 } : item;
                 return null;
             }).filter(Boolean)]
         },

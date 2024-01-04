@@ -62,7 +62,7 @@ const CustomerDetails = () => {
                                 <h2 className="text-primary text-xl font-medium uppercase my-4">shipping info</h2>
                                 <div className="grid lg:col-start-1 lg:col-end-3">
                                     <label htmlFor="address" className="text-sm font-bold text-secondary my-3 uppercase ml-2 tracking-wide">address</label>
-                                    <input type="text" placeholder="Name" {...register("address")} className="border border-white-200 hover:border-primary px-4 py-3 rounded-lg text-sm text-secondary font-bold focus:outline-none focus-visible:outline-none caret-primary" />
+                                    <input type="text" placeholder="Address" {...register("address")} className="border border-white-200 hover:border-primary px-4 py-3 rounded-lg text-sm text-secondary font-bold focus:outline-none focus-visible:outline-none caret-primary" />
                                     {errors.address && <span className="ml-auto text-sm font-medium text-primary">{errors.address.message}</span>}
                                 </div>
                                 <div className="grid">
