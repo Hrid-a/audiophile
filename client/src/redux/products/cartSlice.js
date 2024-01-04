@@ -3,32 +3,32 @@ import { createSlice } from "@reduxjs/toolkit";
 const cartSlice = createSlice({
     name: "cart",
     initialState: {
-        cart: [],
+        products: [],
         isCartShown: false,
     },
     reducers: {
         addToCart: (state, action) => {
-            const product = state.cart.find(item => item.id === action.payload.id);
+            const product = state.products.find(item => item.id === action.payload.id);
             if (product) {
                 product.Qty += 1;
             } else {
-                state.cart.push(action.payload);
+                state.products.push(action.payload);
             }
         },
         removeFromCart: (state, action) => {
-            state.cart = [...state.cart.filter(item => item.id !== action.payload)];
+            state.products = [...state.products.filter(item => item.id !== action.payload)];
         },
         incrementQty: (state, action) => {
-            state.cart = [...state.cart.map(item => item.id === action.payload ? { ...item, Qty: item.Qty + 1 } : item)]
+            state.products = [...state.products.map(item => item.id === action.payload ? { ...item, Qty: item.Qty + 1 } : item)]
         },
         decrementQty: (state, action) => {
-            state.cart = [...state.cart.map(item => {
+            state.products = [...state.products.map(item => {
                 if (item.Qty > 1) return item.id === action.payload ? { ...item, Qty: item.Qty - 1 } : item;
                 return null;
             }).filter(Boolean)]
         },
         removeAll: (state) => {
-            state.cart.length = 0;
+            state.products.length = 0;
         },
         showCart: (state) => {
             state.isCartShown = !state.isCartShown;

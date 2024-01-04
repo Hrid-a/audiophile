@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 
 const Cart = () => {
-    const cartItems = useSelector(state => state.cart.cart);
+    const cartItems = useSelector(state => state.cart.products);
     const dispatch = useDispatch();
     const total = () => {
-        return cartItems.reduce((acc, item) => acc + ((item.price / 10) * item.Qty), 0);
+        return cartItems.reduce((acc, item) => acc + ((item.price / 10) * item.Qty), 0).toFixed(2);
     }
 
 
@@ -32,12 +32,12 @@ const Cart = () => {
                             </div>
                         </div>
                         <div className="bg-[#F1F1F1] py-2 px-4 text-secondary text-sm font-medium uppercase flex gap-5 justify-center items-center rounded-lg self-center">
-                            <span className={`cursor-pointer ${item.Qty < 2 ? "pointer-events-none" : ""}`}
-                                onClick={() => dispatch(decrementQty(item.id))}
+                            <span className="cursor-pointer"
+                                onClick={() => { dispatch(decrementQty(item.id)) }}
                             >-</span>
                             <span className="w-9 text-center">{item.Qty}</span>
                             <span className={`cursor-pointer`}
-                                onClick={() => dispatch(incrementQty(item.id))}
+                                onClick={() => { dispatch(incrementQty(item.id)) }}
                             >+</span>
 
                         </div>
@@ -55,7 +55,7 @@ const Cart = () => {
                     </article>
                 </section>
                 :
-                <p className="text-center text-primary font-medium text-2xl p-8 mt-16">Cart is empty</p>
+                <p className="text-center text-primary font-medium text-sm p-8 mt-4">Cart is empty</p>
             }
         </div>
     )

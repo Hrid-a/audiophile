@@ -12,7 +12,7 @@ import Cart from "./Cart";
 const Header = () => {
     const [isMenuOpened, setIsMenuOpened] = useState(false);
     const location = useLocation();
-    const cartLength = useSelector(state => state.cart.length)
+    const cartItems = useSelector(state => state.cart.products);
     const isCartShown = useSelector(state => state.cart.isCartShown);
 
     const dispatch = useDispatch();
@@ -25,7 +25,7 @@ const Header = () => {
     return (
         <header className="bg-clr-bg relative">
             <Wrapper>
-                <div className="py-9 px-6 md:py-8 md:px-9 lg:px-0 flex justify-between border border-b-white-400">
+                <div className="py-9 px-6 md:py-8 md:px-9 lg:px-0 flex justify-between border-b border-b-white-400">
                     <div className="flex gap-10 items-center justify-between md:justify-start">
                         <div className="lg:hidden cursor-pointer" onClick={handleClick}>
                             <span className="sr-only">Click to open the menu</span>
@@ -61,7 +61,7 @@ const Header = () => {
                         onClick={() => dispatch(showCart())}
                     >
                         <img src={cart} alt="cart" />
-                        {cartLength && <span className="absolute -top-5 left-4 w-8 h-8 rounded-full bg-primary text-center text-xl text-white font-medium">{cartLength}</span>}
+                        {cartItems.length > 0 && <span className="absolute -top-5 left-4 w-8 h-8 rounded-full bg-primary text-center text-xl text-white font-medium">{cartItems.length}</span>}
                     </div>
                 </div>
 
@@ -70,7 +70,7 @@ const Header = () => {
                 </div>}
             </Wrapper>
             {
-                isCartShown && <div className="absolute top-full bg-[#00000040] h-screen  inset-x-0 z-10"></div>
+                isCartShown && <div className="absolute top-full bg-[#00000040] h-screen  inset-x-0 z-10" onClick={() => dispatch(showCart())}></div>
             }
         </header>
     )
