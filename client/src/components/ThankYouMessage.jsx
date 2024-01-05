@@ -4,7 +4,7 @@ import { removeAll } from "../redux/products/cartSlice";
 import { resetState } from "../redux/products/orderSlice";
 
 const ThankYouMessage = () => {
-    const cartItems = useSelector(state => state.cart.cart);
+    const cartItems = useSelector(state => state.cart.products);
     const order = useSelector(state => state.order.order.order);
     const dispatch = useDispatch();
     const item = cartItems[0];
