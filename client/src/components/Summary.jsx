@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 
 const Summary = () => {
     const cartItems = useSelector(state => state.cart.products);
+
     const total = () => {
         return cartItems.reduce((acc, item) => acc + ((item.price / 10) * item.Qty), 0);
     }

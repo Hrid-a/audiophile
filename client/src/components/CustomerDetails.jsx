@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { placeOrder } from "../redux/products/orderSlice";
 
 const CustomerDetails = () => {
-    const cartItems = useSelector(state => state.cart.cart);
+    const cartItems = useSelector(state => state.cart.products);
     const { handleSubmit, formState: { errors }, register } = useForm(
         {
             resolver: valibotResolver(customerSchema),
@@ -22,9 +22,8 @@ const CustomerDetails = () => {
     const onSubmit = (data) => {
         const amount = cartItems.reduce((acc, item) => acc + ((item.price / 10) * item.Qty), 0);
         const products = cartItems.map(item => ({ product: item.id, quantity: item.Qty }))
-        console.log("before placing the order");
+
         dispatch(placeOrder({ ...data, products, amount }))
-        console.log("after placing the order");
 
     }
 
