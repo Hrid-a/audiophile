@@ -12,7 +12,7 @@ const HeroSection = () => {
         <Wrapper >
             {
                 products.length ? <div className="grid grid-cols-1  lg:grid-cols-2 gap-8 place-items-center h-[100svh]">
-                    <div className="max-w-[380px] row-start-1 row-end-2 col-start-1 col-end-2 z-20 lg:row-auto 
+                    <div className="max-w-[380px] z-auto row-start-1 row-end-2 col-start-1 col-end-2 z-20 lg:row-auto 
             lg:col-auto grid place-items-center lg:place-items-start text-center lg:text-start">
                         <span className="text-white-200 opacity-20 text-xs uppercase tracking-[0.5rem]">New Product</span>
                         <h1 className="text-white text-4xl  lg:text-5xl font-bold uppercase my-6">{products[0].name}</h1>
